@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title> CURSO DE JAVA SCRIPT</title>
+</head>
+<body>
+    <input id="campo" class="campo">
+    <button class="btn" onclick="newitem()" id="btn"> BOTAO</button>
+
+    <div class="app">
+
+    </div>
+
+
+
+    <script>
+       var btn = document.querySelector(".btn")
+
+
+       function getRandomColor() 
+       {
+            var letters = "0123456789ABCDEF";
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+       function criarElemento()
+       {
+            var element = document.createElement('div')
+            element.style.width = '100px'
+            element.style.height = '100px'
+            element.style.backgroundColor = "#003399"  
+
+            element.onmouseover = function() {
+                element.style.backgroundColor = getRandomColor();
+                }
+            var container = document.querySelector(".app")
+            container.appendChild(element)
+       }
+
+
+
+       
+        
+        function newList()
+        {   
+            var vetor = ["gabriel", "lucas", "maique"]
+            var tag = document.createElement('ul')
+            tag.id = "lista"
+            tag.className = "lista"
+
+           
+            var container = document.querySelector(".app")
+            container.appendChild(tag)
+
+           // var opt = document.createElement("li")
+            var containerul = document.querySelector(".lista")
+            for(i = 0; i <= 2; i++)
+            {
+                opt = document.createElement("li")
+                opt.setAttribute('value', vetor[i])
+                opt.id = (vetor[i])
+                opt.className = (vetor[i])
+                text = document.createTextNode(vetor[i])
+                opt.appendChild(text);
+                containerul.appendChild(opt)
+            }  
+        }
+
+        function newinput()
+        {   
+           
+            var tag = document.createElement('input')
+            tag.id = "input"
+            tag.className = "input"
+            tag.name = "input"
+            tag.type = "text"
+
+           
+            var container = document.querySelector(".app")
+            container.appendChild(tag)
+
+
+            var btn = document.createElement('button')
+            btn.id = "btn"
+            btn.className = "btn"
+            btn.name = "btn"
+            btn.setAttribute('onClick', "adicionar()")
+            text = document.createTextNode("ADCIONAR")
+            btn.appendChild(text)
+           
+            var containerB = document.querySelector(".app")
+            containerB.appendChild(btn) 
+
+
+        }
+        function adicionar()
+        {   
+            var input = document.getElementById('input')
+            valor = input.value
+            
+            var tag = document.createElement('ul')
+            tag.id = "lista"
+            tag.className = "lista"
+
+           
+            var container = document.querySelector(".app")
+            container.appendChild(tag)
+
+            var opt = document.createElement("li")
+            var containerul = document.querySelector(".lista")
+            for(i = 0; i <= 2; i++)
+            {
+                opt = document.createElement("li")
+                opt.setAttribute('value', vetor[i])
+                opt.id = (vetor[i])
+                opt.className = (vetor[i])
+                text = document.createTextNode(vetor[i])
+                opt.appendChild(text);
+                containerul.appendChild(opt)
+            }  
+        }
+
+        function newitem()
+        {
+           var campo = document.getElementById("campo")
+           valor = campo.value
+           var li = document.createElement("li")
+           li.setAttribute('value', valor)
+           text = document.createTextNode(valor)
+           li.appendChild(text)
+           var ul = document.querySelector(".lista")
+           ul.appendChild(li)
+
+        }
+
+        
+        
+document.addEventListener('DOMContentLoaded', function () {
+    newList()
+});
+
+
+
+        //var newColor = getRandomColor(); // #E943F0
+
+    </script>    
+</body>
+</html>
